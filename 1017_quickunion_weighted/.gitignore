@@ -1,0 +1,5 @@
+/qunionw
+/cachegrind.out.*
+/callgrind.out.*
+/*.d
+/*.o
