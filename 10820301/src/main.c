@@ -1,31 +1,31 @@
-#include <stdio.h>
+#include <float.h>
 #include <limits.h>
 #include <stdint.h>
-#include <float.h>
+#include <stdio.h>
 
-int8_t find_largest_8(void);
-int16_t find_largest_16(void);
-int32_t find_largest_32(void);
-int64_t find_largest_64(void);
+int8_t find_largest_8 (void);
+int16_t find_largest_16 (void);
+int32_t find_largest_32 (void);
+int64_t find_largest_64 (void);
 
-int8_t find_largest_8(void) {
+int8_t find_largest_8 (void) {
     uint8_t u = (uint8_t) (-1);
-    return (int8_t)(u / 2);
+    return (int8_t) (u / 2);
 }
 
-int16_t find_largest_16(void) {
+int16_t find_largest_16 (void) {
     uint16_t u = (uint16_t) (-1);
-    return (int16_t)(u / 2);
+    return (int16_t) (u / 2);
 }
 
-int32_t find_largest_32(void) {
+int32_t find_largest_32 (void) {
     uint32_t u = (uint32_t) (-1);
-    return (int32_t)(u / 2);
+    return (int32_t) (u / 2);
 }
 
-int64_t find_largest_64(void) {
+int64_t find_largest_64 (void) {
     uint64_t u = (uint64_t) (-1);
-    return (int64_t)(u / 2);
+    return (int64_t) (u / 2);
 }
 
 int main (void) {
@@ -50,5 +50,4 @@ int main (void) {
     fprintf(stdout, "LONG_MAX           : %ld\n\n", LONG_MAX);
     fprintf(stdout, "FLT_MAX            : %f\n", FLT_MAX);
     fprintf(stdout, "DBL_MAX            : %f\n\n", DBL_MAX);
-
 }
