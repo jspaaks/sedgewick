@@ -1,5 +1,0 @@
-/qfind
-/cachegrind.out.*
-/callgrind.out.*
-/*.d
-/*.o

@@ -1,0 +1,7 @@
+/*.workspace
+/*.workspace.layout
+/**/bin
+/**/obj
+/**/*.cbp
+/**/*.depend
+/**/*.layout
