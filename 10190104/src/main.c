@@ -33,7 +33,7 @@ int main (void) {
     init_labels(nlabels, &labels);
     fprintf(stdout, "---       quick find        ---\n");
     fprintf(stdout, "            0 1 2 3 4 5 6\n");
-    fprintf(stdout, "i    edge   labels\n");
+    fprintf(stdout, "i    edge   labels        naccess\n");
     for (int iedge = 0; iedge < nedges; iedge++) {
         Edge edge = edges[iedge];
         bool changed = qfind(edge, nlabels, &labels, &naccess);
