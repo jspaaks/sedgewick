@@ -21,10 +21,10 @@ int main (void) {
             double mu = 0;
             double sigma = 0;
             for (int isample = 0; isample < nsamples[irow]; isample++) {
-                double u = ((double) rand()) / RAND_MAX;
+                // double u = ((double) rand()) / RAND_MAX;
                 int r = 0;
 
-                TODO
+                // TODO
 
                 mu += r / nsamples[irow];
                 sigma += r * r / nsamples[irow];
