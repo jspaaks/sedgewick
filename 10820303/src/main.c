@@ -26,7 +26,7 @@ int main (void) {
 
                 TODO
 
-                    mu += r / nsamples[irow];
+                mu += r / nsamples[irow];
                 sigma += r * r / nsamples[irow];
             }
             mus[irow][icol] = mu;
