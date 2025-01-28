@@ -1,7 +1,4 @@
-```shell
-cp --recursive template newdir
-sed -i s/template/newdir/g newdir/.codeblocks/project.cbp
-```
+# Developer notes
 
 Format for the directories is e.g.
 
@@ -16,5 +13,5 @@ int main (void) {
     fprintf(stdout, "%01d%03d%02d%03d\n", ivolume, ipage, ichapter, iexercise);
 }
 
-# should return 108303005
+// should return 108303005
 ```
