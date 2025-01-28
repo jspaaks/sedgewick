@@ -1,6 +1,5 @@
 #ifndef POINT_H
 #define POINT_H
-#include <stdint.h>
 
 typedef struct point2 Point2;
 
