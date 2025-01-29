@@ -8,7 +8,7 @@ void print_data (const int ncols, const int (*ranges)[ncols], const int nrows, c
 
 int main (void) {
     srand(time(NULL));
-    fprintf(stdout, "Calculating mean and standard deviation for combinations of N and r.\n");
+    fprintf(stdout, "TODO Calculating mean and standard deviation for combinations of N and r.\n");
     int nrows = 4;
     int ncols = 3;
     int ranges[] = { 10, 100, 1000 };
