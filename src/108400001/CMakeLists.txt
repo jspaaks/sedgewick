@@ -17,24 +17,24 @@ elseif(UNIX)
     list(APPEND CMAKE_INSTALL_RPATH $ORIGIN/../lib)
 endif()
 
-add_executable(tgt_exe_108203010)
+add_executable(tgt_exe_108400001)
 
-set_property(TARGET tgt_exe_108203010 PROPERTY OUTPUT_NAME 108203010)
+set_property(TARGET tgt_exe_108400001 PROPERTY OUTPUT_NAME 108400001)
 
 target_compile_definitions(
-    tgt_exe_108203010
+    tgt_exe_108400001
     PRIVATE
         $<$<CONFIG:Debug>:DEBUG>
 )
 
 target_compile_features(
-    tgt_exe_108203010
+    tgt_exe_108400001
     PRIVATE
         c_std_23
 )
 
 target_compile_options(
-    tgt_exe_108203010
+    tgt_exe_108400001
     PRIVATE
         -Wall
         -Wextra
@@ -45,30 +45,28 @@ target_compile_options(
 )
 
 target_include_directories(
-    tgt_exe_108203010
+    tgt_exe_108400001
     PRIVATE
         tgt_lib_kwargs
 )
 
 target_link_directories(
-    tgt_exe_108203010
+    tgt_exe_108400001
     PRIVATE
         tgt_lib_kwargs
 )
 
 target_link_libraries(
-    tgt_exe_108203010
+    tgt_exe_108400001
     PRIVATE
         tgt_lib_kwargs
 )
 
 target_sources(
-    tgt_exe_108203010
+    tgt_exe_108400001
     PRIVATE
-        ${PROJECT_ROOT}/src/108203010/main.c
-        ${PROJECT_ROOT}/src/108203010/options.c
-        ${PROJECT_ROOT}/src/108203010/point.c
-        ${PROJECT_ROOT}/src/108203010/triangle.c
+        ${PROJECT_ROOT}/src/108400001/main.c
+        ${PROJECT_ROOT}/src/108400001/options.c
 )
 
-install(TARGETS tgt_exe_108203010)
+install(TARGETS tgt_exe_108400001)
