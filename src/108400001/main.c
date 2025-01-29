@@ -7,9 +7,7 @@
 
 int main (int argc, const char * argv[]) {
 
-    size_t nclasses = options_get_nclasses();
-    const KwargsClass * classes = options_get_classes();
-    const Kwargs * kwargs = kwargs_create(argc, argv, nclasses, classes);
+    const Kwargs * kwargs = kwargs_create(argc, argv, 0, nullptr);
     if (kwargs_requires_help(kwargs)) {
         options_show_usage();
         kwargs_destroy((Kwargs **) &kwargs);
