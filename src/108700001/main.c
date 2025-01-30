@@ -5,7 +5,10 @@
 #include <time.h>
 
 
-int heads() {
+bool heads (void);
+
+
+bool heads (void) {
     return rand() < RAND_MAX / 2;
 }
 
