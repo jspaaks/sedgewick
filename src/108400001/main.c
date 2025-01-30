@@ -7,7 +7,8 @@
 
 int main (int argc, const char * argv[]) {
 
-    const Kwargs * kwargs = kwargs_create(argc, argv, 0, nullptr);
+    const size_t npositionals = 1;
+    const Kwargs * kwargs = kwargs_create(argc, argv, 0, nullptr, npositionals);
     if (kwargs_requires_help(kwargs)) {
         options_show_usage();
         kwargs_destroy((Kwargs **) &kwargs);
