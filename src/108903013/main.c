@@ -1,8 +1,9 @@
 #include "options.h"
+#include <math.h>
 #include <stddef.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
-
 
 
 int main (int argc, const char * argv[]) {
@@ -18,6 +19,15 @@ int main (int argc, const char * argv[]) {
         exit(EXIT_SUCCESS);
     }
     size_t maxint = options_get_maxint(kwargs);
+    {
+        size_t max_allowed = (size_t) sqrtl((long double) SIZE_MAX);
+        if (maxint > max_allowed) {
+            fprintf(stderr,
+                    "Program won't work correctly for integers larger than %ld, aborting.\n",
+                    max_allowed);
+            exit(EXIT_FAILURE);
+        }
+    }
     bool report_number = options_get_report_number(kwargs);
     bool report_primes = options_get_report_primes(kwargs);
 
