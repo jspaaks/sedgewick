@@ -53,6 +53,7 @@ target_include_directories(
 target_link_directories(
     tgt_exe_108400001
     PRIVATE
+        m
         tgt_lib_kwargs
 )
 
