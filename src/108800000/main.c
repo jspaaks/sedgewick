@@ -7,7 +7,7 @@ float randFloat()
   { return  1.0*rand()/RAND_MAX; }
 int main(int, char *argv[])
   { float d = atof(argv[2]);
-    int i, j, cnt, N = atoi(argv[1]);
+    int i, j, cnt = 0, N = atoi(argv[1]);
     point *a = malloc(N*sizeof(*a));
     for (i = 0; i < N; i++)
       { a[i].x = randFloat(); a[i].y = randFloat(); }
