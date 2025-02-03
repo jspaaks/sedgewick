@@ -1,5 +1,7 @@
 # 108700000
 
+Reference program 3.7 coin-flipping simulation
+
 ```console
 $ ./108700000 32 1000
  0 
