@@ -33,5 +33,5 @@ $ clang-format -i `find ./src -type f -name '*.[c|h]'`
 
 ## Directory names
 
-Format for the directory name is `"%01d%03d%02d%03d"`, with the `d`s represent the volume number,
+Format for the directory name is `"%01d%03d%02d%03d"`, where `d` represents the volume number,
 the page number, chapter number, and the exercise number, respectively.
