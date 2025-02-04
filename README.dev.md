@@ -1,17 +1,37 @@
 # Developer notes
 
-Format for the directories is e.g.
+## CMake
 
-```c
-#include <stdio.h>
+The project has been initialized with a [CMakeLists.txt](CMakeLists.txt)-based
+configuration for building with CMake:
 
-int main (void) {
-    int ivolume = 1;
-    int ipage = 83;
-    int ichapter = 3;
-    int iexercise = 5;
-    fprintf(stdout, "%01d%03d%02d%03d\n", ivolume, ipage, ichapter, iexercise);
-}
+```console
+# change into the build directory
+$ cd build/
 
-// should return 108303005
+# generate the build files
+$ cmake ..
+
+# build the project
+$ cmake --build .
+
+# install the project to <repo>/build/dist
+$ cmake --install .
 ```
+
+## `clang-format`
+
+The file `.clang-format` contains an initial configuration for (automatic) formatting with [clang-format](https://clang.llvm.org/docs/ClangFormat.html). Run the formatter with e.g.:
+
+```console
+# dry run on main.c
+$ clang-format -Werror --dry-run main.c
+
+# format in place all *.c and *.h files under ./src
+$ clang-format -i `find ./src -type f -name '*.[c|h]'`
+```
+
+## Directory names
+
+Format for the directory name is `"%01d%03d%02d%03d"`, with the `d`s represent the volume number,
+the page number, chapter number, and the exercise number, respectively.
