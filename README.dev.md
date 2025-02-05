@@ -28,7 +28,7 @@ The file `.clang-format` contains an initial configuration for (automatic) forma
 $ clang-format -Werror --dry-run main.c
 
 # format in place all *.c and *.h files under ./src
-$ clang-format -i `find ./src -type f -name '*.[c|h]'`
+$ clang-format -i `find ./src -type f -name '*.[c|h]' | sort`
 ```
 
 ## Directory names
