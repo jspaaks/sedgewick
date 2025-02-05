@@ -1,11 +1,10 @@
-#include "triangle.h"
-#include "options.h"
 #include "kwargs/kwargs.h"
+#include "options.h"
+#include "triangle.h"
 #include <float.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
-
 
 int main (int argc, const char * argv[]) {
 
@@ -37,7 +36,7 @@ int main (int argc, const char * argv[]) {
         if (report_areas) {
             fprintf(stdout, "area: %.3f\n", area);
         }
-        avg_area += area  / ntriangles;
+        avg_area += area / ntriangles;
         max_area = area > max_area ? area : max_area;
     }
     if (options_get_report_avg(kwargs)) {

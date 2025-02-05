@@ -9,12 +9,20 @@ typedef struct {
     Point2 point;
 } ClosestPoint2;
 
-
 int main (void) {
     Point2 points[3] = {
-        {.x = -1, .y = -1},
-        {.x =  0, .y =  0},
-        {.x =  1, .y =  1}
+        {
+         .x = -1,
+         .y = -1,
+         },
+        {
+         .x = 0,
+         .y = 0,
+         },
+        {
+         .x = 1,
+         .y = 1,
+         },
     };
     const float tolerance = 0.0001;
     if (point_test_is_collinear(&points[0], &points[1], &points[2], tolerance)) {

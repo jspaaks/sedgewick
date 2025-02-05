@@ -1,3 +1,4 @@
+// clang-format off: reference implementation
 #include <stdlib.h>
 #include <stdio.h>
 
@@ -18,3 +19,5 @@ int main(int, char *argv[])
         printf("\n");
       }
   }
+
+// clang-format on

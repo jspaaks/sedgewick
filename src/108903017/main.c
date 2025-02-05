@@ -1,10 +1,9 @@
-#include "options.h"
 #include "kwargs/kwargs.h"
-#include <stdlib.h>
-#include <stdint.h>
+#include "options.h"
 #include <inttypes.h>
+#include <stdint.h>
+#include <stdlib.h>
 #include <time.h>
-
 
 int main (int argc, const char * argv[]) {
 

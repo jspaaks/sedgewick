@@ -1,19 +1,16 @@
-#include "options.h"
 #include "kwargs/kwargs.h"
-#include <stdlib.h>
+#include "options.h"
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 
-
 bool heads (void);
-
 
 bool heads (void) {
     return rand() < RAND_MAX / 2;
 }
 
-
-int main(int argc, const char * argv[]) {
+int main (int argc, const char * argv[]) {
 
     // initialize the pseudo-random number generator
     srand(time(nullptr));

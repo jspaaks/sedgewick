@@ -9,7 +9,6 @@ struct point2 {
     float y;
 };
 
-
 Point2 point_draw (int r);
 void point_print (Point2 * point);
 float point_calc_euclidean_distance (Point2 * from, Point2 * to);

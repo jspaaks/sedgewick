@@ -1,6 +1,6 @@
 #include "triangle.h"
-#include <stdio.h>
 #include <math.h>
+#include <stdio.h>
 
 float triangle_calc_area (Triangle * triangle) {
     float one = triangle->a.x * (triangle->b.y - triangle->c.y);
@@ -9,17 +9,15 @@ float triangle_calc_area (Triangle * triangle) {
     return 0.5 * fabsf(one + two + three);
 }
 
-
 Triangle triangle_draw (void) {
-    return (Triangle) {
+    return (Triangle){
         .a = point_draw(),
         .b = point_draw(),
-        .c = point_draw()
+        .c = point_draw(),
     };
 }
 
-
-void triangle_print(Triangle * triangle) {
+void triangle_print (Triangle * triangle) {
     fprintf(stdout, "{\n");
     fprintf(stdout, "  a.x: %7.3f,\n", triangle->a.x);
     fprintf(stdout, "  a.y: %7.3f,\n", triangle->a.y);
@@ -29,5 +27,3 @@ void triangle_print(Triangle * triangle) {
     fprintf(stdout, "  c.y: %7.3f\n", triangle->c.y);
     fprintf(stdout, "}\n");
 }
-
-

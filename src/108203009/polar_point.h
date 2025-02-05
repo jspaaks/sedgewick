@@ -8,7 +8,6 @@ struct polar_point2 {
     float angle;
 };
 
-
 void polar_point_print (PolarPoint2 * point);
 
 #endif

@@ -2,6 +2,7 @@
 #define POINT_H
 
 typedef struct point Point;
+
 struct point {
     float x;
     float y;

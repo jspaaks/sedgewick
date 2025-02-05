@@ -1,12 +1,10 @@
-#include "options.h"
 #include "kwargs/kwargs.h"
-#include <stdlib.h>
-#include <stdint.h>
+#include "options.h"
 #include <inttypes.h>
-
+#include <stdint.h>
+#include <stdlib.h>
 
 int comparator (const void * a, const void * b);
-
 
 int main (int argc, const char * argv[]) {
 
@@ -120,7 +118,6 @@ int main (int argc, const char * argv[]) {
     free(bins);
     exit(EXIT_SUCCESS);
 }
-
 
 int comparator (const void * a, const void * b) {
     const uint16_t aa = *(const uint16_t *) a;

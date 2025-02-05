@@ -2,7 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-
 int main (void) {
     const size_t n = 99;
     uint8_t arr[99] = {};

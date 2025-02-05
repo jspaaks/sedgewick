@@ -1,7 +1,7 @@
 #ifndef OPTIONS_H
 #define OPTIONS_H
-#include <stddef.h>
 #include "kwargs/kwargs.h"
+#include <stddef.h>
 
 bool options_get_report_avg (const Kwargs * kwargs);
 bool options_get_report_areas (const Kwargs * kwargs);

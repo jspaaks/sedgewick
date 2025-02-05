@@ -1,3 +1,4 @@
+// clang-format off: reference implementation
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,3 +17,5 @@ int main(int, char *argv[])
         if (distance(a[i], a[j]) < d) cnt++;
     printf("%d edges shorter than %f\n", cnt, d);
   }
+
+// clang-format on

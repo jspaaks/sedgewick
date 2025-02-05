@@ -6,11 +6,9 @@
 #include <stdlib.h>
 #include <time.h>
 
-
-float unitrand() {
-    return  1.0 * rand() / RAND_MAX;
+float unitrand (void) {
+    return 1.0 * rand() / RAND_MAX;
 }
-
 
 int main (int argc, const char * argv[]) {
 

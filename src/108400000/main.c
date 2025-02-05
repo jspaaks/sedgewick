@@ -1,3 +1,4 @@
+// clang-format off: reference implementation
 #include <stdio.h>
 
 // note: values of N larger than sqrt(INT_MAX) won't work or won't
@@ -18,3 +19,5 @@ int main (void)
     printf("\n");
     return 0;
   }
+
+// clang-format on

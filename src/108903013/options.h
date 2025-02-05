@@ -2,7 +2,6 @@
 #define OPTIONS_H
 #include "kwargs/kwargs.h"
 
-
 KwargsClass * options_get_classes (void);
 size_t options_get_maxint (const Kwargs * kwargs);
 size_t options_get_nclasses (void);

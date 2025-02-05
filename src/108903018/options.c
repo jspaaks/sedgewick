@@ -2,39 +2,36 @@
 #include "kwargs/kwargs.h"
 #include <inttypes.h>
 #include <limits.h>
-#include <stdio.h>
 #include <stdint.h>
+#include <stdio.h>
 #include <time.h>
-
 
 static const KwargsClass classes[4] = {
     {
-        .shortname = "-c",
-        .longname = "--ncolsmax",
-        .type = KWARGS_OPTIONAL
-    },
+     .shortname = "-c",
+     .longname = "--ncolsmax",
+     .type = KWARGS_OPTIONAL,
+     },
     {
-        .shortname = "-d",
-        .longname = "--no-distribution",
-        .type = KWARGS_FLAG
-    },
+     .shortname = "-d",
+     .longname = "--no-distribution",
+     .type = KWARGS_FLAG,
+     },
     {
-        .shortname = "-o",
-        .longname = "--no-outcomes",
-        .type = KWARGS_FLAG
-    },
+     .shortname = "-o",
+     .longname = "--no-outcomes",
+     .type = KWARGS_FLAG,
+     },
     {
-        .shortname = "-s",
-        .longname = "--seed",
-        .type = KWARGS_OPTIONAL
-    }
+     .shortname = "-s",
+     .longname = "--seed",
+     .type = KWARGS_OPTIONAL,
+     }
 };
-
 
 const KwargsClass * options_get_classes (void) {
     return &classes[0];
 }
-
 
 uint16_t options_get_maxint (const Kwargs * kwargs) {
     const char * s = kwargs_get_positional_value(0, kwargs);
@@ -52,11 +49,9 @@ uint16_t options_get_maxint (const Kwargs * kwargs) {
     }
 }
 
-
 size_t options_get_nclasses (void) {
     return sizeof(classes) / sizeof(classes[0]);
 }
-
 
 uint16_t options_get_ncolsmax (const Kwargs * kwargs) {
     const char * s = kwargs_get_optional_value("--ncolsmax", kwargs);
@@ -77,16 +72,13 @@ uint16_t options_get_ncolsmax (const Kwargs * kwargs) {
     }
 }
 
-
 bool options_get_no_distribution (const Kwargs * kwargs) {
-    return kwargs_has_flag("--no-distribution",  kwargs);
+    return kwargs_has_flag("--no-distribution", kwargs);
 }
-
 
 bool options_get_no_outcomes (const Kwargs * kwargs) {
-    return kwargs_has_flag("--no-outcomes",  kwargs);
+    return kwargs_has_flag("--no-outcomes", kwargs);
 }
-
 
 size_t options_get_ntrials (const Kwargs * kwargs) {
     const char * s = kwargs_get_positional_value(1, kwargs);
@@ -104,8 +96,7 @@ size_t options_get_ntrials (const Kwargs * kwargs) {
     }
 }
 
-
-unsigned int options_get_seed(const Kwargs * kwargs) {
+unsigned int options_get_seed (const Kwargs * kwargs) {
     const char * s = kwargs_get_optional_value("--seed", kwargs);
     if (s == nullptr) {
         return time(nullptr);
@@ -123,7 +114,6 @@ unsigned int options_get_seed(const Kwargs * kwargs) {
         exit(EXIT_FAILURE);
     }
 }
-
 
 void options_show_usage (void) {
     fprintf(stdout,
@@ -162,7 +152,6 @@ void options_show_usage (void) {
             "\n"
             "        NTRIALS\n"
             "            The number of randomly generated integers.\n"
-            "\n"
-            , UINT16_MAX - 1
-            );
+            "\n",
+            UINT16_MAX - 1);
 }

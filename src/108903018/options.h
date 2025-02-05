@@ -11,7 +11,7 @@ uint16_t options_get_ncolsmax (const Kwargs * kwargs);
 bool options_get_no_distribution (const Kwargs * kwargs);
 bool options_get_no_outcomes (const Kwargs * kwargs);
 size_t options_get_ntrials (const Kwargs * kwargs);
-unsigned int options_get_seed(const Kwargs * kwargs);
+unsigned int options_get_seed (const Kwargs * kwargs);
 void options_show_usage (void);
 
 #endif
