@@ -125,8 +125,6 @@ void options_show_usage (void) {
             "       value is repeated;\n"
             "    2. Store the number of integers drawn;\n"
             "    3. Repeat for NTRIALS trials;\n"
-            "    4. Report the distribution of when the first repeated integer\n"
-            "       is drawn;\n"
             "\n"
             "    Options\n"
             "\n"
@@ -151,7 +149,7 @@ void options_show_usage (void) {
             "            can have. Maximum allowed value is %" PRIu16 ".\n"
             "\n"
             "        NTRIALS\n"
-            "            The number of randomly generated integers.\n"
+            "            The number of trials.\n"
             "\n",
             UINT16_MAX - 1);
 }

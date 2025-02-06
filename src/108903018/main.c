@@ -10,7 +10,7 @@ void report_outcomes (size_t ntrials, const uint16_t * ndraws);
 void run_the_trials (uint16_t maxint, bool * seen, size_t ntrials, uint16_t * ndraws);
 
 void initialize_random_number_generator (unsigned int seed) {
-    srandom(seed);
+    srand(seed);
 }
 
 int main (int argc, const char * argv[]) {
@@ -121,7 +121,7 @@ void run_the_trials (const uint16_t maxint, bool * seen, const size_t ntrials, u
             seen[iseen] = false;
         }
         while (true) {
-            double z = (double) random() / RAND_MAX;
+            double z = (double) rand() / RAND_MAX;
             uint16_t ibin = (uint16_t) (z * maxint);
             ndraws[itrial]++;
             if (seen[ibin]) {

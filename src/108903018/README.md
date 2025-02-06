@@ -10,8 +10,6 @@ usage: 108903018 -h
        value is repeated;
     2. Store the number of integers drawn;
     3. Repeat for NTRIALS trials;
-    4. Report the distribution of when the first repeated integer
-       is drawn;
 
     Options
 
@@ -36,7 +34,7 @@ usage: 108903018 -h
             can have. Maximum allowed value is 65534.
 
         NTRIALS
-            The number of randomly generated integers.
+            The number of trials.
 
 $ ./dist/bin/108903018 --seed 12345 --no-distribution 10 5
 Trial      Draws needed before
