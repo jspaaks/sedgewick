@@ -4,7 +4,14 @@
 #include <stdint.h>
 #include <stdlib.h>
 
-int comparator (const void * a, const void * b);
+void initialize_random_number_generator (unsigned int seed);
+void report_distribution (const size_t ntrials, const uint16_t * ndraws, const uint16_t ncolsmax, size_t * bins);
+void report_outcomes (size_t ntrials, const uint16_t * ndraws);
+void run_the_trials (uint16_t maxint, bool * seen, size_t ntrials, uint16_t * ndraws);
+
+void initialize_random_number_generator (unsigned int seed) {
+    srandom(seed);
+}
 
 int main (int argc, const char * argv[]) {
 
@@ -42,10 +49,72 @@ int main (int argc, const char * argv[]) {
         exit(EXIT_FAILURE);
     }
 
-    // initialize random-number generator
-    srandom(seed);
+    initialize_random_number_generator(seed);
+    run_the_trials(maxint, &seen[0], ntrials, &ndraws[0]);
+    if (!no_outcomes) {
+        report_outcomes(ntrials, &ndraws[0]);
+    }
+    size_t * bins = nullptr;
+    if (!no_distribution) {
+        report_distribution (ntrials, &ndraws[0], ncolsmax, &bins[0]);
+    }
 
-    // run the trials
+    // clean up
+    free(seen);
+    free(ndraws);
+    free(bins);
+    exit(EXIT_SUCCESS);
+}
+
+void report_distribution (const size_t ntrials, const uint16_t * ndraws, const uint16_t ncolsmax, size_t * bins) {
+    uint16_t ndrawsmin = ndraws[0];
+    uint16_t ndrawsmax = ndraws[0];
+    for (size_t itrial = 1; itrial < ntrials; itrial++) {
+        if (ndraws[itrial] < ndrawsmin) {
+            ndrawsmin = ndraws[itrial];
+        }
+        if (ndraws[itrial] > ndrawsmax) {
+            ndrawsmax = ndraws[itrial];
+        }
+    }
+    size_t nbins = ndrawsmax - ndrawsmin + 1;
+    bins = calloc(nbins, sizeof(size_t));
+    if (bins == nullptr) {
+        fprintf(stderr, "ERROR: Problem allocating memory for 'bins' array, aborting.\n");
+        exit(EXIT_FAILURE);
+    }
+    for (size_t itrial = 0; itrial < ntrials; itrial++) {
+        size_t ibin = ndraws[itrial] - ndrawsmin;
+        bins[ibin]++;
+    }
+    size_t binsmax = bins[0];
+    for (size_t ibin = 1; ibin < nbins; ibin++) {
+        if (bins[ibin] > binsmax) {
+            binsmax = bins[ibin];
+        }
+    }
+    float f = (float) ncolsmax / binsmax;
+    fprintf(stdout, "%-19s    %-10s    %s\n", "Draws needed before", "Count", "Distribution");
+    fprintf(stdout, "%-19s    %-10s    %s\n", "repeated number", "", "");
+    for (size_t ibin = 0; ibin < nbins; ibin++) {
+        fprintf(stdout, "%-19zu    %-10zu    ", ibin + ndrawsmin, bins[ibin]);
+        size_t ncols = (size_t) (bins[ibin] * f);
+        for (size_t icol = 0; icol < ncols; icol++) {
+            fprintf(stdout, "*");
+        }
+        fprintf(stdout, "\n");
+    }
+}
+
+void report_outcomes (const size_t ntrials, const uint16_t * ndraws) {
+    fprintf(stdout, "%-7s    %s\n", "Trial", "Draws needed before");
+    fprintf(stdout, "%-7s    %s\n", "", "repeated number");
+    for (size_t i = 0; i < ntrials; i++) {
+        fprintf(stdout, "%-7zu    %" PRIu16 "\n", i, ndraws[i]);
+    }
+}
+
+void run_the_trials (const uint16_t maxint, bool * seen, const size_t ntrials, uint16_t * ndraws) {
     uint16_t nseen = maxint + (uint16_t) 1;
     for (size_t itrial = 0; itrial < ntrials; itrial++) {
         for (size_t iseen = 0; iseen < nseen; iseen++) {
@@ -62,67 +131,5 @@ int main (int argc, const char * argv[]) {
             }
         }
     }
-
-    // report results
-    if (!no_outcomes) {
-        fprintf(stdout, "%-7s    %s\n", "Trial", "Draws needed before");
-        fprintf(stdout, "%-7s    %s\n", "", "repeated number");
-        for (size_t i = 0; i < ntrials; i++) {
-            fprintf(stdout, "%-7zu    %" PRIu16 "\n", i, ndraws[i]);
-        }
-    }
-    size_t * bins = nullptr;
-    if (!no_distribution) {
-        uint16_t ndrawsmin = ndraws[0];
-        uint16_t ndrawsmax = ndraws[0];
-        for (size_t itrial = 1; itrial < ntrials; itrial++) {
-            if (ndraws[itrial] < ndrawsmin) {
-                ndrawsmin = ndraws[itrial];
-            }
-            if (ndraws[itrial] > ndrawsmax) {
-                ndrawsmax = ndraws[itrial];
-            }
-        }
-        size_t nbins = ndrawsmax - ndrawsmin + 1;
-        bins = calloc(nbins, sizeof(size_t));
-        if (bins == nullptr) {
-            fprintf(stderr, "ERROR: Problem allocating memory for 'bins' array, aborting.\n");
-            exit(EXIT_FAILURE);
-        }
-        for (size_t itrial = 0; itrial < ntrials; itrial++) {
-            size_t ibin = ndraws[itrial] - ndrawsmin;
-            bins[ibin]++;
-        }
-        size_t binsmax = bins[0];
-        for (size_t ibin = 1; ibin < nbins; ibin++) {
-            if (bins[ibin] > binsmax) {
-                binsmax = bins[ibin];
-            }
-        }
-        float f = (float) ncolsmax / binsmax;
-        fprintf(stdout, "%-19s    %-10s    %s\n", "Draws needed before", "Count", "Distribution");
-        fprintf(stdout, "%-19s    %-10s    %s\n", "repeated number", "", "");
-        for (size_t ibin = 0; ibin < nbins; ibin++) {
-            fprintf(stdout, "%-19zu    %-10zu    ", ibin + ndrawsmin, bins[ibin]);
-            size_t ncols = (size_t) (bins[ibin] * f);
-            for (size_t icol = 0; icol < ncols; icol++) {
-                fprintf(stdout, "*");
-            }
-            fprintf(stdout, "\n");
-        }
-    }
-
-    // clean up
-    free(seen);
-    free(ndraws);
-    free(bins);
-    exit(EXIT_SUCCESS);
 }
 
-int comparator (const void * a, const void * b) {
-    const uint16_t aa = *(const uint16_t *) a;
-    const uint16_t bb = *(const uint16_t *) b;
-    if (aa < bb) return -1;
-    if (aa > bb) return 1;
-    return 0;
-}
