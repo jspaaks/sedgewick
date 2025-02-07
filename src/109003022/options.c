@@ -97,7 +97,7 @@ void options_show_usage (void) {
                     "    Required\n"
                     "\n"
                     "        -p NPOINTS, --npoints NPOINTS (positive integer)\n"
-                    "            The number of points to generate in the unit square.\n"
+                    "            The number of points to generate in the 2-D unit square.\n"
                     "\n"
                     "        -d DISTANCE, --distance DISTANCE (floating point)\n"
                     "            The critical distance.\n"

@@ -19,7 +19,7 @@ usage: 109003022 -h
     Required
 
         -p NPOINTS, --npoints NPOINTS (positive integer)
-            The number of points to generate in the unit square.
+            The number of points to generate in the 2-D unit square.
 
         -d DISTANCE, --distance DISTANCE (floating point)
             The critical distance.
