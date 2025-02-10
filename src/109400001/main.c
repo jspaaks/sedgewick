@@ -49,7 +49,7 @@ Node * initialize (const int nmembers) {
 }
 
 int main (int argc, char * argv[]) {
-    if (argc == 2 && strncmp("-h", argv[1], 3)) {
+    if (argc == 2 && strncmp("-h", argv[1], 3) == 0) {
         show_usage();
         exit(EXIT_SUCCESS);
     }
