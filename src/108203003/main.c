@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-void print_data (const int ncols, const int (*ranges)[ncols], const int nrows, const int (*nsamples)[nrows],
-                 const double (*data)[nrows][ncols], const char *);
+void print_data (const int ncols, const int (*ranges)[ncols], const int nrows,
+                 const int (*nsamples)[nrows], const double (*data)[nrows][ncols], const char *);
 
 int main (void) {
     srand(time(NULL));
@@ -37,8 +37,9 @@ int main (void) {
     print_data(ncols, &ranges, nrows, &nsamples, &sigmas, "standard deviations:");
 }
 
-void print_data (const int ncols, const int (*ranges)[ncols], const int nrows, const int (*nsamples)[nrows],
-                 const double (*data)[nrows][ncols], const char * title) {
+void print_data (const int ncols, const int (*ranges)[ncols], const int nrows,
+                 const int (*nsamples)[nrows], const double (*data)[nrows][ncols],
+                 const char * title) {
     fprintf(stdout, "\n%s\n", title);
     fprintf(stdout, "        r");
     for (int icol = 0; icol < ncols; icol++) {

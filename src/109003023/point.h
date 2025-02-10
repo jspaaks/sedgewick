@@ -14,5 +14,4 @@ float point_calc_distance_squared (Point * a, Point * b);
 void point_destroy (const size_t npoints, Point ** points);
 void point_initialize (size_t npoints, Point * points, uint16_t ndims);
 
-
 #endif

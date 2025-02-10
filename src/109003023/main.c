@@ -17,10 +17,12 @@ typedef struct retain {
 
 Retain count_the_points_that_qualify (size_t npoints, Point * points, float dsquared_threshold);
 void initialize_random_number_generation (unsigned int seed);
-void report (size_t npoints, const Point * points, const Retain * retain, float distance_squared, uint16_t ndims);
+void report (size_t npoints, const Point * points, const Retain * retain, float distance_squared,
+             uint16_t ndims);
 float unitrand (void);
 
-Retain count_the_points_that_qualify (const size_t npoints, Point * points, const float dsquared_threshold) {
+Retain count_the_points_that_qualify (const size_t npoints, Point * points,
+                                      const float dsquared_threshold) {
     Retain retain = {
         .dsquared = FLT_MAX,
         .i = -1,
@@ -89,7 +91,8 @@ int main (int argc, const char * argv[]) {
 void report (const size_t npoints, const Point * points, const Retain * retain,
              const float dsquared_threshold, const uint16_t ndims) {
     const uint32_t nedges = 0.5 * npoints * (npoints - 1);
-    printf("Randomly generated %zu points in the %" PRIu16 "-dimensional unit square.\n", npoints, ndims);
+    printf("Randomly generated %zu points in the %" PRIu16 "-dimensional unit square.\n", npoints,
+           ndims);
     printf("The minimum distance is %.3f, which is the distance from\n", sqrt(retain->dsquared));
     printf("point %zu (", retain->i);
     for (uint16_t idim = 0; idim < points[retain->i].ndims - 1; idim++) {

@@ -42,7 +42,8 @@ int main (void) {
     exit(EXIT_SUCCESS);
 }
 
-static void printrow (const int iedge, const Edge edge, const int n, const int (*labels)[n], int naccess) {
+static void printrow (const int iedge, const Edge edge, const int n, const int (*labels)[n],
+                      int naccess) {
     fprintf(stdout, "%2d.   %d-%d  ", iedge, edge.p, edge.q);
     for (int i = 0; i < n; i++) {
         fprintf(stdout, " %d", (*labels)[i]);

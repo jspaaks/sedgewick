@@ -82,15 +82,17 @@ int main (int argc, const char * argv[]) {
     exit(EXIT_SUCCESS);
 }
 
-void report (const size_t npoints, const Point * points, const Retain * retain, const float distance) {
+void report (const size_t npoints, const Point * points, const Retain * retain,
+             const float distance) {
     const uint32_t nedges = 0.5 * npoints * (npoints - 1);
     printf("Randomly generated %zu points in the unit square.\n", npoints);
     printf("The minimum distance is %.3f, which is the distance from\n"
            "point %zu (.x = %.3f, .y = %.3f) to\n"
            "point %zu (.x = %.3f, .y = %.3f)\n",
-           retain->d, retain->i, points[retain->i].x, points[retain->i].y, retain->j, points[retain->j].x,
-           points[retain->j].y);
-    printf("Out of all %u edges, %u were shorter than %f\n", nedges, retain->nedges_short, distance);
+           retain->d, retain->i, points[retain->i].x, points[retain->i].y, retain->j,
+           points[retain->j].x, points[retain->j].y);
+    printf("Out of all %u edges, %u were shorter than %f\n", nedges, retain->nedges_short,
+           distance);
 }
 
 float unitrand (void) {

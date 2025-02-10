@@ -34,7 +34,9 @@ int main (void) {
             };
         }
     }
-    fprintf(stdout, "Closest point to {.x = %.3f, .y = %.3f} is {.x = %.3f, .y = %.3f} at a distance of %.3f.\n",
+    fprintf(stdout,
+            "Closest point to {.x = %.3f, .y = %.3f} is {.x = %.3f, .y = %.3f} at a dista"
+            "nce of %.3f.\n",
             points[0].x, points[0].y, closest.point.x, closest.point.y, closest.distance);
     exit(EXIT_SUCCESS);
 }

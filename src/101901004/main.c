@@ -42,8 +42,8 @@ int main (void) {
     return EXIT_SUCCESS;
 }
 
-static void printrow (const int iedge, const Edge edge, const int n, const int (*labels)[n], bool changed,
-                      int naccess) {
+static void printrow (const int iedge, const Edge edge, const int n, const int (*labels)[n],
+                      bool changed, int naccess) {
     fprintf(stdout, "%2d.   %d-%d  ", iedge, edge.p, edge.q);
     for (int i = 0; i < n; i++) {
         if (changed) {

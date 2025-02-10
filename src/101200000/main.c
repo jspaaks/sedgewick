@@ -44,7 +44,8 @@ int main (void) {
     }
 }
 
-static void printrow (const int iedge, const Edge edge, const int n, const int (*labels)[n], bool changed) {
+static void printrow (const int iedge, const Edge edge, const int n, const int (*labels)[n],
+                      bool changed) {
     fprintf(stdout, "%2d.   %d-%d  ", iedge, edge.p, edge.q);
     if (changed) {
         for (int i = 0; i < n; i++) {

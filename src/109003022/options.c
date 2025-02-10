@@ -24,7 +24,6 @@ static const KwargsClass classes[3] = {
      },
 };
 
-
 const KwargsClass * options_get_classes (void) {
     return &classes[0];
 }

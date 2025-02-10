@@ -19,7 +19,9 @@ int main (int argc, const char * argv[]) {
     {
         size_t max_allowed = (size_t) sqrtl((long double) SIZE_MAX);
         if (maxint > max_allowed) {
-            fprintf(stderr, "Program won't work correctly for integers larger than %ld, aborting.\n", max_allowed);
+            fprintf(stderr,
+                    "Program won't work correctly for integers larger than %ld, aborting.\n",
+                    max_allowed);
             exit(EXIT_FAILURE);
         }
     }

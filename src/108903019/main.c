@@ -5,7 +5,8 @@
 #include <stdlib.h>
 
 void initialize_random_number_generator (unsigned int seed);
-void report_distribution (const size_t ntrials, const uint16_t * ndraws, const uint16_t ncolsmax, size_t * bins);
+void report_distribution (size_t ntrials, const uint16_t * ndraws, uint16_t ncolsmax,
+                          size_t * bins);
 void report_outcomes (size_t ntrials, const uint16_t * ndraws);
 void run_the_trials (uint16_t maxint, bool * seen, size_t ntrials, uint16_t * ndraws);
 
@@ -56,7 +57,7 @@ int main (int argc, const char * argv[]) {
     }
     size_t * bins = nullptr;
     if (!no_distribution) {
-        report_distribution (ntrials, &ndraws[0], ncolsmax, &bins[0]);
+        report_distribution(ntrials, &ndraws[0], ncolsmax, &bins[0]);
     }
 
     // clean up
@@ -66,7 +67,8 @@ int main (int argc, const char * argv[]) {
     exit(EXIT_SUCCESS);
 }
 
-void report_distribution (const size_t ntrials, const uint16_t * ndraws, const uint16_t ncolsmax, size_t * bins) {
+void report_distribution (const size_t ntrials, const uint16_t * ndraws, const uint16_t ncolsmax,
+                          size_t * bins) {
     uint16_t ndrawsmin = ndraws[0];
     uint16_t ndrawsmax = ndraws[0];
     for (size_t itrial = 1; itrial < ntrials; itrial++) {
